@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* SENATI Corporate Colors */
+    --background: 0 0% 98%;
+    --foreground: 217 100% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 217 100% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 100% 10%;
+
+    /* SENATI Blue #003366 */
+    --primary: 210 100% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    /* SENATI Orange #FF6B35 */
+    --secondary: 16 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 16 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 20%;
+
+    --radius: 0.75rem;
+
+    /* Custom SENATI tokens */
+    --senati-blue: 210 100% 20%;
+    --senati-blue-dark: 210 100% 15%;
+    --senati-orange: 16 100% 60%;
+    --senati-gray: 215 16% 47%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 20%), hsl(210 100% 15%));
+    --gradient-accent: linear-gradient(135deg, hsl(16 100% 60%), hsl(16 100% 50%));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 51, 102, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 51, 102, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 51, 102, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 51, 102, 0.1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 210 100% 20%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 210 100% 20%;
+  }
+
+  .dark {
+    --background: 217 100% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 217 100% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 217 100% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 217 100% 10%;
+
+    --secondary: 16 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 16 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 212 27% 84%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 210 100% 20%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 210 100% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
