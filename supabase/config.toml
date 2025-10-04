@@ -1,7 +1,0 @@
-project_id = "lymqzqbizvdbdauaeunm"
-
-[functions.consulta-dni]
-verify_jwt = false
-
-[functions.enviar-confirmacion]
-verify_jwt = false
