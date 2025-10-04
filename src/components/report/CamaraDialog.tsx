@@ -272,7 +272,7 @@ export function CamaraDialog({ open, onOpenChange, onPhotoCaptured, files }: Cam
                   <Button 
                     type="button" 
                     onClick={retakePhoto} 
-                    className="flex-1" 
+                    className="w-full sm:w-auto" 
                     size="lg"
                   >
                     Volver a Tomar
@@ -281,7 +281,7 @@ export function CamaraDialog({ open, onOpenChange, onPhotoCaptured, files }: Cam
                     type="button" 
                     onClick={confirmPhoto} 
                     disabled={currentPhotosCount >= MAX_FILES} 
-                    className="flex-1" 
+                    className="w-full sm:w-auto" 
                     size="lg"
                   >
                     Confirmar Foto
@@ -293,7 +293,7 @@ export function CamaraDialog({ open, onOpenChange, onPhotoCaptured, files }: Cam
                     type="button" 
                     onClick={capturePhoto} 
                     disabled={currentPhotosCount >= MAX_FILES} 
-                    className="flex-1" 
+                    className="w-full sm:w-auto" 
                     size="lg"
                   >
                     Tomar Foto
@@ -303,7 +303,7 @@ export function CamaraDialog({ open, onOpenChange, onPhotoCaptured, files }: Cam
                     variant="outline" 
                     onClick={switchCamera} 
                     disabled={isCameraLoading}
-                    className="flex-1" 
+                    className="w-full sm:w-auto" 
                     size="lg"
                   >
                     {facingMode === 'user' ? 'Cambiar a Trasera' : 'Cambiar a Frontal'}
@@ -317,7 +317,7 @@ export function CamaraDialog({ open, onOpenChange, onPhotoCaptured, files }: Cam
                 className="w-full sm:w-auto" 
                 size="lg"
               >
-                Cancelar
+                Volver
               </Button>
             </div>
           )}
