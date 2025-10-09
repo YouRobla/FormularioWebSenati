@@ -16,7 +16,6 @@ export const formSchema = z.object({
   tipo: z.string().min(1, "Seleccione un tipo"),
   relacionado_a: z.string().min(1, "Seleccione una categoría"),
   ocurrio_en: z.string().min(1, "Campo requerido"),
-  fecha_incidente: z.date({ required_error: "La fecha y hora son requeridas" }),
   observacion: z.string().min(10, "Mínimo 10 caracteres"),
   files: z.array(z.any()).min(1, "Debe subir al menos una evidencia."),
 }).superRefine((data, ctx) => {
