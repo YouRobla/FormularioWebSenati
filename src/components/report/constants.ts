@@ -47,9 +47,7 @@ export const AREAS = [
 export const TIPOS_REPORTANTE = [
   "Estudiante",
   "Instructor", 
-  "Administrativo",
-  "Personal",
-  "Otra entidad"
+  "Administrativo"
 ];
 
 export const MAX_FILES = 3;

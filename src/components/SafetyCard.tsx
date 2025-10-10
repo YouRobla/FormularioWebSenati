@@ -45,25 +45,25 @@ export function SafetyCard({ personnelImageUrl, logoUrl }: SafetyCardProps) {
 
           <CardHeader className="p-0 mb-4 z-10 space-y-2">
             
-            <div className="flex justify-center items-center mb-6">
-                 {/* Nuevo Título Principal del Formulario - Centrado */}
-                <div className="flex flex-col text-center">
-                    <h1 className="text-2xl md:text-3xl font-bold">
+            <div className="flex justify-center items-center mb-8 ">
+                 {/* Nuevo Título Principal del Formulario - Más centrado y con padding */}
+                <div className="pr-10 pl-10 flex flex-col text-center max-w-4xl">
+                    <h1 className=" text-start text-2xl md:text-4xl font-bold leading-tight">
                         Formulario de Reporte de Actos y Condiciones Inseguras
                     </h1>
-                    <p className="text-sm md:text-base opacity-90 mt-1">DIRECCIÓN ZONAL JUNIN - PASCO - HUANCAVELICA</p>
+                    <p className="text-start texts-sm md:text-lg opacity-90 mt-3">DIRECCIÓN ZONAL JUNIN - PASCO - HUANCAVELICA</p>
                 </div>
             </div>
             
             {/* Título de Seguridad (el mensaje del cartel) - Centrado */}
-            <CardTitle className="text-xl md:text-2xl font-semibold flex items-center justify-center pt-4 border-t border-white/30">
+            <CardTitle className="text-xl md:text-2xl font-semibold flex items-center justify-center pt-6 border-t border-white/30 ">
                 <HandMetal className="w-6 h-6 mr-2 text-yellow-300" />
                 ¡La seguridad depende de todos!
             </CardTitle>
           </CardHeader>
 
-          <CardContent className="p-0 z-10 text-center">
-            <p className="text-3xl md:text-5xl font-black leading-tight tracking-tighter">
+          <CardContent className="p-0 z-10 text-center ">
+            <p className="text-3xl text-start md:text-5xl font-black leading-tight tracking-tighter">
               REPORTA LOS ACTOS Y CONDICIONES INSEGURAS EN NUESTRAS SEDES
             </p>
           </CardContent>
