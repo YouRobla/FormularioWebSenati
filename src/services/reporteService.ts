@@ -24,6 +24,16 @@ export interface ReporteResponse {
 export class ReporteService {
   static async submitReporte(data: ReporteData): Promise<ReporteResponse> {
     try {
+      // Validar archivos antes de enviar
+      for (const file of data.evidencias) {
+        if (!file.type.startsWith('image/')) {
+          throw new Error(`Solo se permiten imágenes. Archivo rechazado: ${file.name}`);
+        }
+        if (file.size > 10 * 1024 * 1024) {
+          throw new Error(`El archivo ${file.name} excede los 10MB`);
+        }
+      }
+
       // Crear FormData para enviar datos y archivos
       const formData = new FormData();
       

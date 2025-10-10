@@ -2,7 +2,7 @@ import { FormField, FormItem, FormLabel, FormControl, FormMessage, FormDescripti
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Input } from "@/components/ui/input";
-import { MAIN_DOCUMENT_TYPES, OTHER_DOCUMENT_TYPES, AREAS } from "../report/constants";
+import { MAIN_DOCUMENT_TYPES, OTHER_DOCUMENT_TYPES, AREAS, TIPOS_REPORTANTE } from "../report/constants";
 import { MainDocumentType } from "../report/constants";
 
 interface DatosReportanteProps {
@@ -144,7 +144,20 @@ export function DatosReportante({
         <FormField control={form.control} name="reportante" render={({ field }) => (
           <FormItem>
             <FormLabel>Reportante *</FormLabel>
-            <FormControl><Input placeholder="Estudiante / Instructor / Administrativo" {...field} /></FormControl>
+            <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <FormControl>
+                <SelectTrigger>
+                  <SelectValue placeholder="Seleccione un tipo de reportante" />
+                </SelectTrigger>
+              </FormControl>
+              <SelectContent>
+                {TIPOS_REPORTANTE.map((tipo) => (
+                  <SelectItem key={tipo} value={tipo}>
+                    {tipo}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
             <FormMessage />
           </FormItem>
         )} />

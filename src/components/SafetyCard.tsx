@@ -29,7 +29,7 @@ export function SafetyCard({ personnelImageUrl, logoUrl }: SafetyCardProps) {
         </div>
 
         {/* Sección del Mensaje Institucional y Títulos (2/3 del ancho en escritorio) */}
-        <div className="md:w-2/3 bg-blue-800 text-white p-6 md:p-10 flex flex-col justify-between relative">
+        <div className="md:w-2/3 bg-blue-800 text-white p-6 md:p-10 flex flex-col justify-center relative">
           
           {/* Diseño con patrón geométrico sutil */}
           <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -45,32 +45,24 @@ export function SafetyCard({ personnelImageUrl, logoUrl }: SafetyCardProps) {
 
           <CardHeader className="p-0 mb-4 z-10 space-y-2">
             
-            <div className="flex justify-between items-start mb-6">
-                 {/* Nuevo Título Principal del Formulario */}
-                <div className="flex flex-col">
+            <div className="flex justify-center items-center mb-6">
+                 {/* Nuevo Título Principal del Formulario - Centrado */}
+                <div className="flex flex-col text-center">
                     <h1 className="text-2xl md:text-3xl font-bold">
                         Formulario de Reporte de Actos y Condiciones Inseguras
                     </h1>
                     <p className="text-sm md:text-base opacity-90 mt-1">DIRECCIÓN ZONAL JUNIN - PASCO - HUANCAVELICA</p>
                 </div>
-
-                {/* Logo y Botón de Admin 
-                <div className="flex flex-col items-end gap-3">
-                    <img src={logoUrl} alt="Logo de SENATI" className="h-20 object-contain filter brightness-[1.5]" />
-                    <Link to="/auth">
-                        
-                    </Link>
-                </div> */}
             </div>
             
-            {/* Título de Seguridad (el mensaje del cartel) */}
-            <CardTitle className="text-xl md:text-2xl font-semibold flex items-center pt-4 border-t border-white/30">
+            {/* Título de Seguridad (el mensaje del cartel) - Centrado */}
+            <CardTitle className="text-xl md:text-2xl font-semibold flex items-center justify-center pt-4 border-t border-white/30">
                 <HandMetal className="w-6 h-6 mr-2 text-yellow-300" />
                 ¡La seguridad depende de todos!
             </CardTitle>
           </CardHeader>
 
-          <CardContent className="p-0 z-10">
+          <CardContent className="p-0 z-10 text-center">
             <p className="text-3xl md:text-5xl font-black leading-tight tracking-tighter">
               REPORTA LOS ACTOS Y CONDICIONES INSEGURAS EN NUESTRAS SEDES
             </p>

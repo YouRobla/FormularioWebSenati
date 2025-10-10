@@ -28,7 +28,7 @@ export function GestionEvidencias({
           render={() => (
             <FormItem>
               <label className="block text-sm font-medium mb-2">
-                Subir fotos/evidencias (Máximo 3 archivos, 5MB c/u)
+                Subir fotos/evidencias (Máximo 3 archivos, 10MB c/u)
               </label>
               <div className="flex items-center justify-center w-full space-x-4">
                 <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer hover:bg-muted/50 transition-colors flex-1">
@@ -37,7 +37,7 @@ export function GestionEvidencias({
                     <p className="mb-2 text-sm text-muted-foreground">
                       <span className="font-semibold">Click para subir</span> o arrastre archivos
                     </p>
-                    <p className="text-xs text-muted-foreground">JPG, PNG, GIF, BMP, HEIC, PDF (MAX. 5MB)</p>
+                    <p className="text-xs text-muted-foreground">Solo imágenes: JPG, PNG, GIF, WebP, BMP, HEIC (MAX. 10MB)</p>
                   </div>
                   <input 
                     type="file" 

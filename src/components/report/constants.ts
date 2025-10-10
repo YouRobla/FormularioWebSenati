@@ -44,18 +44,27 @@ export const AREAS = [
   { id: "5", nombre: "Área de Calidad" },
 ];
 
+export const TIPOS_REPORTANTE = [
+  "Estudiante",
+  "Instructor", 
+  "Administrativo",
+  "Personal",
+  "Otra entidad"
+];
+
 export const MAX_FILES = 3;
-export const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB para archivos subidos
+export const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB para archivos (solo imágenes)
 export const MAX_PHOTO_SIZE = 10 * 1024 * 1024; // 10MB para fotos de cámara
 export const ACCEPTED_TYPES = [
   "image/jpeg",
-  "image/jpg",
+  "image/jpg", 
   "image/png",
   "image/gif",
+  "image/webp",
   "image/bmp",
   "image/heic",
-  "application/pdf",
-];
+  "image/heif",
+]; // Solo imágenes, sin PDFs
 
 export interface Area {
   id: string;

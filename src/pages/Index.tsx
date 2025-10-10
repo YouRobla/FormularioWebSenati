@@ -44,18 +44,14 @@ const Index = () => {
                   
          {/* Footer */}
     <footer className="bg-[#003087] text-white py-8 mt-8 shadow-xl">
-      <div className="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row items-center justify-between gap-8">
-        <img
-          src={senatiLogo1}
-          alt="Logo SENATI"
-          className="h-48 object-contain filter brightness-110"
-        />
-        <div className="text-center md:text-right max-w-lg space-y-3">
+      <div className="container mx-auto px-6 max-w-6xl flex flex-col items-center justify-center text-center space-y-4">
+      
+        <div className="space-y-3">
           <p className="font-bold text-3xl tracking-tight">SENATI</p>
           <p className="text-lg font-medium">
             Servicio Nacional de Adiestramiento en Trabajo Industrial
           </p>
-          <div className="h-px w-24 bg-[#1E90FF] mx-auto md:ml-auto md:mr-0"></div>
+          <div className="h-px w-24 bg-[#1E90FF] mx-auto"></div>
           <p className="text-sm opacity-80">
             Dirección Zonal Junín - Pasco - Huancavelica
           </p>
