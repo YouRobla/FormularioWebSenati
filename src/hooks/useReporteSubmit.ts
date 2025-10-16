@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { ReporteService, ReporteData } from '../services/reporteService';
+import { AREAS } from '../components/report/constants';
 
 export function useReporteSubmit() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -9,6 +10,10 @@ export function useReporteSubmit() {
     setIsSubmitting(true);
 
     try {
+      // Obtener el nombre del área por su ID
+      const areaSeleccionada = AREAS.find(area => area.id === formData.area_id);
+      const nombreArea = areaSeleccionada ? areaSeleccionada.nombre : formData.area_id;
+
       // Mapear datos del formulario a la estructura del backend
       const reporteData: ReporteData = {
         tipo_documento: formData.documentType,
@@ -16,7 +21,7 @@ export function useReporteSubmit() {
         nombre_completo: formData.nombres_apellidos,
         correo_institucional: formData.correo_institucional,
         nombre_reportante: formData.reportante,
-        area_texto: formData.area_id, // Valor del select (ej: "Área de Seguridad")
+        area_texto: nombreArea, // Enviar el nombre del área, no el ID
         tipo_reporte: formData.tipo,
         relacionado_con: formData.relacionado_a,
         lugar_incidente: formData.ocurrio_en,
