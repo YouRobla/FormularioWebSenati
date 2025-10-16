@@ -9,8 +9,7 @@ export const formSchema = z.object({
   nombres_apellidos: z.string().min(1, "Campo requerido"),
   correo_institucional: z
     .string()
-    .email("Email inválido")
-    .endsWith("@senati.pe", "Debe ser un correo @senati.pe"),
+    .email("Email inválido"),
   reportante: z.string().min(1, "Campo requerido"),
   area_id: z.string().min(1, "Seleccione un área"),
   tipo: z.string().min(1, "Seleccione un tipo"),

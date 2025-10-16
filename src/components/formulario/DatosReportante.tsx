@@ -124,18 +124,13 @@ export function DatosReportante({
 
         <FormField control={form.control} name="correo_institucional" render={({ field }) => (
           <FormItem>
-            <FormLabel>Correo Institucional *</FormLabel>
+            <FormLabel>Correo Electrónico *</FormLabel>
             <FormControl>
-              <Input placeholder="000000@senati.pe" {...field} onChange={(e) => {
-                const value = e.target.value;
-                if (value.endsWith('@') && !value.endsWith('@senati.pe')) {
-                  field.onChange(value + 'senati.pe');
-                } else if (value.endsWith('@s')) {
-                  field.onChange(value.slice(0, -1) + 'senati.pe');
-                } else {
-                  field.onChange(value);
-                }
-              }} />
+              <Input 
+                type="email"
+                placeholder="ejemplo@correo.com" 
+                {...field} 
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
