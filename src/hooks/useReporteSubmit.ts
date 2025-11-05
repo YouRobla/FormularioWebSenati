@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { ReporteService, ReporteData } from '../services/reporteService';
-import { AREAS } from '../components/report/constants';
 
 export function useReporteSubmit() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -10,24 +9,41 @@ export function useReporteSubmit() {
     setIsSubmitting(true);
 
     try {
-      // Obtener el nombre del área por su ID
-      const areaSeleccionada = AREAS.find(area => area.id === formData.area_id);
-      const nombreArea = areaSeleccionada ? areaSeleccionada.nombre : formData.area_id;
 
-      // Mapear datos del formulario a la estructura del backend
+
       const reporteData: ReporteData = {
         tipo_documento: formData.documentType,
         numero_documento: formData.dni,
-        nombre_completo: formData.nombres_apellidos,
-        correo_institucional: formData.correo_institucional,
-        nombre_reportante: formData.reportante,
-        area_texto: nombreArea, // Enviar el nombre del área, no el ID
+        sede: formData.Sede,
         tipo_reporte: formData.tipo,
-        relacionado_con: formData.relacionado_a,
         lugar_incidente: formData.ocurrio_en,
         descripcion_observacion: formData.observacion,
-        evidencias: files, // Archivos tal como están
+        acciones_tomadas: formData.acciones_tomadas || undefined,
+        evidencias: files,
       };
+
+      // Log de depuración: datos que se enviarán al backend
+      console.log('========================================');
+      console.log('[Reporte] Datos del formulario completos:');
+      console.log('========================================');
+      console.log('FormData recibido:', formData);
+      console.log('========================================');
+      console.log('[Reporte] Payload a enviar al backend:');
+      console.log({
+        tipo_documento: reporteData.tipo_documento,
+        numero_documento: reporteData.numero_documento,
+        sede: reporteData.sede,
+        tipo_reporte: reporteData.tipo_reporte,
+        lugar_incidente: reporteData.lugar_incidente,
+        descripcion_observacion: reporteData.descripcion_observacion,
+        acciones_tomadas: reporteData.acciones_tomadas || '(no especificado)',
+        evidencias: reporteData.evidencias.map(f => ({ 
+          name: f.name, 
+          type: f.type, 
+          size: `${(f.size / 1024).toFixed(2)} KB` 
+        }))
+      });
+      console.log('========================================');
 
       const result = await ReporteService.submitReporte(reporteData);
 

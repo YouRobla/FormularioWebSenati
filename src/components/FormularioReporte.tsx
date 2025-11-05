@@ -11,13 +11,10 @@ export function FormularioReporte() {
     form,
     files,
     isLoading,
-    isDNILoading,
-    isAPIFailed,
     showCamera,
     setShowCamera,
     mainDocumentType,
     setMainDocumentType,
-    handleDNIChange,
     handlePhotoCaptured,
     handleFileChange,
     removeFile,
@@ -32,9 +29,6 @@ export function FormularioReporte() {
             form={form}
             mainDocumentType={mainDocumentType}
             setMainDocumentType={setMainDocumentType}
-            handleDNIChange={handleDNIChange}
-            isDNILoading={isDNILoading}
-            isAPIFailed={isAPIFailed}
           />
 
           <DetalleReporte form={form} />
@@ -47,7 +41,7 @@ export function FormularioReporte() {
             removeFile={removeFile}
           />
 
-          <FormularioFooter isLoading={isLoading} />
+          <FormularioFooter isLoading={isLoading} form={form} />
         </form>
       </Form>
 

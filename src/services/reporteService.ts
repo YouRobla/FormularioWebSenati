@@ -3,15 +3,12 @@ import { ENV_CONFIG } from '../config/env';
 export interface ReporteData {
   tipo_documento: string;
   numero_documento: string;
-  nombre_completo: string;
-  correo_institucional: string;
-  nombre_reportante: string;
-  area_texto: string;
+  sede: string;
   tipo_reporte: string;
-  relacionado_con: string;
   lugar_incidente: string;
   descripcion_observacion: string;
-  evidencias: File[]; // Archivos tal como están
+  acciones_tomadas?: string;
+  evidencias: File[];
 }
 
 export interface ReporteResponse {
@@ -40,19 +37,47 @@ export class ReporteService {
       // Agregar datos del formulario
       formData.append('tipo_documento', data.tipo_documento);
       formData.append('numero_documento', data.numero_documento);
-      formData.append('nombre_completo', data.nombre_completo);
-      formData.append('correo_institucional', data.correo_institucional);
-      formData.append('nombre_reportante', data.nombre_reportante);
-      formData.append('area_texto', data.area_texto);
+      formData.append('sede', data.sede);
       formData.append('tipo_reporte', data.tipo_reporte);
-      formData.append('relacionado_con', data.relacionado_con);
       formData.append('lugar_incidente', data.lugar_incidente);
       formData.append('descripcion_observacion', data.descripcion_observacion);
+      if (data.acciones_tomadas) {
+        formData.append('acciones_tomadas', data.acciones_tomadas);
+      }
       
       // Agregar archivos - el backend espera 'evidencias' como array
       data.evidencias.forEach((file) => {
         formData.append('evidencias', file);
       });
+
+      // Log de depuración: listar entradas del FormData que se enviará al backend
+      console.log('========================================');
+      console.log('[Reporte] FormData final que se enviará al backend:');
+      console.log('========================================');
+      try {
+        const debugEntries: any[] = [];
+        for (const [key, value] of formData.entries()) {
+          if (value instanceof File) {
+            debugEntries.push({ 
+              campo: key, 
+              archivo: { 
+                nombre: value.name, 
+                tipo: value.type, 
+                tamaño: `${(value.size / 1024).toFixed(2)} KB` 
+              } 
+            });
+          } else {
+            debugEntries.push({ campo: key, valor: value });
+          }
+        }
+        console.table(debugEntries);
+        console.log('========================================');
+        console.log(`Total de campos: ${debugEntries.length}`);
+        console.log(`Total de archivos: ${data.evidencias.length}`);
+        console.log('========================================');
+      } catch (e) {
+        console.error('Error al leer FormData:', e);
+      }
 
       // Enviar al backend
       const response = await fetch(`${ENV_CONFIG.API_BASE_URL}/api/reportes`, {
@@ -87,3 +112,4 @@ export class ReporteService {
     }
   }
 }
+

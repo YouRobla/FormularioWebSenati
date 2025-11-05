@@ -19,7 +19,6 @@ export function useFormularioReporte() {
   // Limpiar campos cuando cambia el tipo de documento
   useEffect(() => {
     form.setValue("dni", "");
-    form.setValue("nombres_apellidos", "");
     if (mainDocumentType === "DNI") {
       form.setValue("documentType", "DNI");
     } else {

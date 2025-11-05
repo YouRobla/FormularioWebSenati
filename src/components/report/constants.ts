@@ -19,36 +19,19 @@ export const MAIN_DOCUMENT_TYPES = ["DNI", "Otro tipo de documento"] as const;
 export type MainDocumentType = (typeof MAIN_DOCUMENT_TYPES)[number];
 
 export const TIPOS_REPORTE = [
-  "Acto Inseguro",
-  "Condición Insegura",
-  "Cuasi Accidente",
-  "Incidente",
+  "Acto Subestándar",
+  "Condición Subestándar",
   "Accidente",
+  "Incidente"
 ];
 
-export const CATEGORIAS_RELACIONADO = [
-  "EPP",
-  "Maquinaria",
-  "Herramientas",
-  "Instalaciones",
-  "Procedimientos",
-  "Ergonomía",
-  "Otros",
-];
-
-export const AREAS = [
-  { id: "1", nombre: "Área de Seguridad" },
-  { id: "2", nombre: "Área de Mantenimiento" },
-  { id: "3", nombre: "Área de Producción" },
-  { id: "4", nombre: "Área Administrativa" },
-  { id: "5", nombre: "Área de Calidad" },
-];
-
-export const TIPOS_REPORTANTE = [
-  "Estudiante",
-  "Instructor", 
-  "Administrativo",
-  "Otra entidad"
+export const SEDES = [
+  "CFP HUANCAYO",
+  "CFP LA OROYA",
+  "CFP CERRO DE PASCO",
+  "CFP SAN RAMON",
+  "CFP RIO NEGRO",
+  "CFP HUANCAVELICA",
 ];
 
 export const MAX_FILES = 3;
@@ -65,7 +48,3 @@ export const ACCEPTED_TYPES = [
   "image/heif",
 ]; // Solo imágenes, sin PDFs
 
-export interface Area {
-  id: string;
-  nombre: string;
-}

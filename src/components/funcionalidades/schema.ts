@@ -6,16 +6,11 @@ export const formSchema = z.object({
     required_error: "Seleccione un tipo de documento",
   }),
   dni: z.string(),
-  nombres_apellidos: z.string().min(1, "Campo requerido"),
-  correo_institucional: z
-    .string()
-    .email("Email inválido"),
-  reportante: z.string().min(1, "Campo requerido"),
-  area_id: z.string().min(1, "Seleccione un área"),
+  Sede: z.string().min(1, "Seleccione una sede"),
   tipo: z.string().min(1, "Seleccione un tipo"),
-  relacionado_a: z.string().min(1, "Seleccione una categoría"),
   ocurrio_en: z.string().min(1, "Campo requerido"),
   observacion: z.string().min(10, "Mínimo 10 caracteres"),
+  acciones_tomadas: z.string().optional(),
   files: z.array(z.any()).min(1, "Debe subir al menos una evidencia."),
 }).superRefine((data, ctx) => {
   if (data.documentType === "DNI") {

@@ -2,7 +2,7 @@ import { FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/comp
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { TIPOS_REPORTE, CATEGORIAS_RELACIONADO } from "../report/constants";
+import { TIPOS_REPORTE, SEDES } from "../report/constants";
 
 interface DetalleReporteProps {
   form: any;
@@ -12,7 +12,7 @@ export function DetalleReporte({ form }: DetalleReporteProps) {
   return (
     <div className="bg-card rounded-lg border p-6 space-y-6">
       <h2 className="text-2xl font-bold text-primary">Detalle del Reporte</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
         <FormField
           control={form.control}
           name="tipo"
@@ -40,18 +40,18 @@ export function DetalleReporte({ form }: DetalleReporteProps) {
 
         <FormField
           control={form.control}
-          name="relacionado_a"
+          name="Sede"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Relacionado a *</FormLabel>
+              <FormLabel>Sede *</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Seleccione una categoría" />
+                    <SelectValue placeholder="Seleccione una sede" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {CATEGORIAS_RELACIONADO.map((cat) => (
+                  {SEDES.map((cat) => (
                     <SelectItem key={cat} value={cat}>
                       {cat}
                     </SelectItem>
@@ -77,6 +77,20 @@ export function DetalleReporte({ form }: DetalleReporteProps) {
         <FormItem>
           <FormLabel>Observación *</FormLabel>
           <FormControl><Textarea placeholder="Describa detalladamente el incidente..." className="min-h-[120px]" {...field} /></FormControl>
+          <FormMessage />
+        </FormItem>
+      )} />
+
+      <FormField control={form.control} name="acciones_tomadas" render={({ field }) => (
+        <FormItem>
+          <FormLabel>Acciones tomadas al momento</FormLabel>
+          <FormControl>
+            <Textarea 
+              placeholder="Describa las acciones que se tomaron al momento del incidente..." 
+              className="min-h-[100px]" 
+              {...field} 
+            />
+          </FormControl>
           <FormMessage />
         </FormItem>
       )} />

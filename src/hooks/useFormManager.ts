@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { formSchema } from '../components/funcionalidades/schema';
@@ -9,17 +8,16 @@ export function useFormManager() {
 
   const form = useForm({
     resolver: zodResolver(formSchema),
+    mode: 'onChange',
+    reValidateMode: 'onChange',
     defaultValues: {
       documentType: "DNI",
       dni: "",
-      nombres_apellidos: "",
-      correo_institucional: "",
-      reportante: "",
-      area_id: "",
+      Sede: "",
       tipo: "",
-      relacionado_a: "",
       ocurrio_en: "",
       observacion: "",
+      acciones_tomadas: "",
       files: [],
     },
   });
