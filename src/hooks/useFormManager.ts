@@ -23,14 +23,20 @@ export function useFormManager() {
   });
 
   const resetForm = () => {
-    form.reset();
+    form.reset({
+      documentType: "DNI",
+      dni: "",
+      Sede: "",
+      tipo: "",
+      ocurrio_en: "",
+      observacion: "",
+      acciones_tomadas: "",
+      files: [],
+    });
   };
 
   const submitForm = async (data: any, files: File[]) => {
     const success = await submitReporte(data, files);
-    if (success) {
-      resetForm();
-    }
     return success;
   };
 

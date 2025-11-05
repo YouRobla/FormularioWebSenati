@@ -56,9 +56,14 @@ export function useFormularioReporte() {
   const handleSubmit = async (values: any) => {
     const success = await submitForm(values, files);
     if (success) {
-      resetForm();
+      // Limpiar archivos primero
       clearFiles();
-      form.setValue("files", []);
+      // Resetear el formulario con valores por defecto
+      resetForm();
+      // Resetear el tipo de documento principal después del reset del form
+      setMainDocumentType("DNI");
+      // Asegurar que el campo files del formulario esté vacío
+      form.setValue("files", [], { shouldValidate: false });
     }
   };
 
